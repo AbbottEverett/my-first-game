@@ -58,6 +58,25 @@
             }
         },
         {
+            "Key": "12f4d632-6a96-440d-ad71-2fb02809d611",
+            "Value": {
+                "id": "eafed195-2c83-4bf3-95e7-2d6166125361",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/sprGrassTile\/sprGrassTile.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "1ecd7d63-aa98-4930-854a-6928c18efb36",
             "Value": {
                 "id": "7f04c1aa-b13a-4460-9bc4-915abd6afdf8",
@@ -169,6 +188,25 @@
                 ],
                 "resourcePath": "views\/467862f7-a939-4486-8864-7687729de49d.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "4fe7bc41-e9bf-402a-af3c-40fd103af95d",
+            "Value": {
+                "id": "0024da45-04bc-4498-9258-ca72f17118ca",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "tilesets\/tileGrass\/tileGrass.yy",
+                "resourceType": "GMTileSet"
             }
         },
         {
