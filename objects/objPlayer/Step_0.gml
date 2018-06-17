@@ -38,3 +38,25 @@ if (place_meeting(x, y+ySpeed, objWall)) {
 }
 
 y += ySpeed;
+
+// Animation Stuff
+
+
+
+if (!onGround) {
+	sprite_index = sprPlayerAir;
+	image_speed = 0;
+	
+	// Picks frame from speed
+	if (sign(ySpeed) > 0) image_index = 1; else image_index = 0;
+	
+} else {
+	image_speed = 1;
+	if (xSpeed == 0) {
+		sprite_index = sprPlayer;
+	} else {
+		sprite_index = sprPlayerWalk;
+	}
+}
+
+if (xSpeed != 0) image_xscale = sign(xSpeed)
