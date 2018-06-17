@@ -628,6 +628,25 @@
             }
         },
         {
+            "Key": "f2d5bb01-46dc-427a-a169-f3240216b0ab",
+            "Value": {
+                "id": "7b120225-020f-4610-a2ee-dd8271af2779",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/sprPlayerSlide\/sprPlayerSlide.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "f418569b-3bdd-4706-a0e4-364317f54032",
             "Value": {
                 "id": "5d79185a-afef-43cd-8239-52c97ec1e2d3",

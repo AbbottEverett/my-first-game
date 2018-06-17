@@ -7,7 +7,13 @@ keyJump = keyboard_check_pressed(ord("W"));
 
 var moveDir = keyRight - keyLeft;
 
-xSpeed = moveDir * walkSpeed;
+if (moveDir != 0) {
+	xSpeed += moveDir * accel;
+	xSpeed = clamp(xSpeed, -walkSpeed, walkSpeed);
+} else {
+	// Linear Interpolation
+	xSpeed = lerp(xSpeed, 0, fric);
+}
 
 // Gravity
 ySpeed += grav;
@@ -40,22 +46,30 @@ if (place_meeting(x, y+ySpeed, objWall)) {
 y += ySpeed;
 
 // Animation Stuff
-
-
+buffer = 0.1
 
 if (!onGround) {
 	sprite_index = sprPlayerAir;
 	image_speed = 0;
 	
 	// Picks frame from speed
-	if (sign(ySpeed) > 0) image_index = 1; else image_index = 0;
+	if (ySpeed > - buffer) && (ySpeed < buffer) {
+		image_index = 1;
+	} else if (sign(ySpeed) == -1) {
+		image_index = 0;
+	} else {
+		image_index = 2;
+	}
 	
 } else {
 	image_speed = 1;
-	if (xSpeed == 0) {
+	
+	if (xSpeed > -buffer) &&  (xSpeed < buffer) {
 		sprite_index = sprPlayer;
-	} else {
+	} else if (moveDir != 0) {
 		sprite_index = sprPlayerWalk;
+	} else {
+		sprite_index = sprPlayerSlide;
 	}
 }
 
