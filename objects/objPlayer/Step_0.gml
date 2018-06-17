@@ -7,25 +7,34 @@ keyJump = keyboard_check_pressed(ord("W"));
 
 var moveDir = keyRight - keyLeft;
 
-hSpeed = moveDir * walkSpeed;
+xSpeed = moveDir * walkSpeed;
 
-// horizontal collision
-if (place_meeting(x+hSpeed, y, objWall)) {
-	while (!place_meeting(x+sign(hSpeed), y, objWall)) {
-		x += sign(hSpeed);
-	}
-	hSpeed = 0;
+// Gravity
+ySpeed += grav;
+
+var onGround = place_meeting(x, y+1, objWall)
+
+if (onGround) && (keyJump) {
+	ySpeed = jumpSpeed;
 }
 
-x += hSpeed;
+// horizontal collision
+if (place_meeting(x+xSpeed, y, objWall)) {
+	while (!place_meeting(x+sign(xSpeed), y, objWall)) {
+		x += sign(xSpeed);
+	}
+	xSpeed = 0;
+}
+
+x += xSpeed;
 
 // vertical collision
 
-if (place_meeting(x, y+vSpeed, objWall)) {
-	while (!place_meeting(x, y+sign(vSpeed), objWall)) {
-		y += sign(vSpeed);
+if (place_meeting(x, y+ySpeed, objWall)) {
+	while (!place_meeting(x, y+sign(ySpeed), objWall)) {
+		y += sign(ySpeed);
 	}
-	vSpeed = 0;
+	ySpeed = 0;
 }
 
-y += vSpeed;
+y += ySpeed;
