@@ -12,7 +12,7 @@ xSpeed = moveDir * walkSpeed;
 // Gravity
 ySpeed += grav;
 
-var onGround = place_meeting(x, y+1, objWall)
+onGround = place_meeting(x, y+1, objWall)
 
 if (onGround) && (keyJump) {
 	ySpeed = jumpSpeed;
