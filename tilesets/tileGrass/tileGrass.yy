@@ -4,7 +4,31 @@
     "mvc": "1.11",
     "name": "tileGrass",
     "auto_tile_sets": [
-        
+        {
+            "id": "a7512783-c219-41a5-8ffd-546bcd576e62",
+            "modelName": "GMAutoTileSet",
+            "mvc": "1.0",
+            "closed_edge": false,
+            "name": "autotile_1",
+            "tiles": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+            ]
+        }
     ],
     "macroPageTiles": {
         "SerialiseData": null,
@@ -14,7 +38,7 @@
             
         ]
     },
-    "out_columns": 3,
+    "out_columns": 4,
     "out_tilehborder": 2,
     "out_tilevborder": 2,
     "spriteId": "12f4d632-6a96-440d-ad71-2fb02809d611",
@@ -34,7 +58,15 @@
             8,
             9,
             10,
-            11
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
         ],
         "SerialiseFrameCount": 1
     },
@@ -42,7 +74,7 @@
         
     ],
     "tile_animation_speed": 15,
-    "tile_count": 12,
+    "tile_count": 20,
     "tileheight": 16,
     "tilehsep": 0,
     "tilevsep": 0,

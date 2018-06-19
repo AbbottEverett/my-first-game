@@ -4,6 +4,7 @@
 keyLeft = keyboard_check(ord("A"));
 keyRight = keyboard_check(ord("D"));
 keyJump = keyboard_check_pressed(ord("W"));
+keyAttack = keyboard_check(vk_space);
 
 var moveDir = keyRight - keyLeft;
 
@@ -22,6 +23,17 @@ onGround = place_meeting(x, y+1, objWall)
 
 if (onGround) && (keyJump) {
 	ySpeed = jumpSpeed;
+}
+
+// Attack
+fireDelay = fireDelay - 1;
+
+if (keyAttack) && (fireDelay < 1) {
+	with(instance_create_layer(x+(other.image_xscale * 5),y-3,"Attack", objAttack)) {
+		speed = 4 * other.image_xscale;
+		direction = other.image_angle + random_range(-10, 15)
+		other.fireDelay = 5
+	}
 }
 
 // horizontal collision

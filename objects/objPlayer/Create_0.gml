@@ -8,4 +8,5 @@ jumpSpeed = -4;
 accel = 0.25;
 fric = 0.25;
 
+fireDelay = 0;
 

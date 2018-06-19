@@ -96,6 +96,25 @@
             }
         },
         {
+            "Key": "232c8474-2bfa-4f17-b9d5-94d55a986b13",
+            "Value": {
+                "id": "6fff80eb-b660-4575-bb37-04b4a2f93850",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/sprAttacksIce\/sprAttacksIce.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "3a0d964d-05b0-4ca9-bca4-48956bda852c",
             "Value": {
                 "id": "93d56dbf-7159-4026-b498-c14d9f958905",
@@ -168,6 +187,25 @@
                     "default"
                 ],
                 "resourcePath": "views\/405e97f9-2b37-4dab-aa26-f937bd743c97.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "45e82651-297a-4a4e-b6f5-b953171e998e",
+            "Value": {
+                "id": "2dc5e193-0f2f-4784-9fcd-5d465afb21ee",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "views\/45e82651-297a-4a4e-b6f5-b953171e998e.yy",
                 "resourceType": "GMFolder"
             }
         },
@@ -343,6 +381,25 @@
             }
         },
         {
+            "Key": "74e5e3a6-8f47-4d35-92ff-f4974496d827",
+            "Value": {
+                "id": "86da84aa-0a23-49cb-8fbd-e6756fc72123",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/sprAttacksFire\/sprAttacksFire.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "7ade71f9-2581-489c-b43e-c8fb9098ac16",
             "Value": {
                 "id": "9fad91e7-1629-459b-b3a0-beaa6149bf5f",
@@ -472,6 +529,25 @@
                     "default"
                 ],
                 "resourcePath": "sprites\/sprPlayerWalk\/sprPlayerWalk.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "c8da12fe-622a-499b-a341-b2b99c775931",
+            "Value": {
+                "id": "917df7cf-60b0-4594-902a-0d7854b2d070",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "sprites\/sprite11\/sprite11.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -625,6 +701,25 @@
                 ],
                 "resourcePath": "views\/ec99299a-fd1c-4181-8109-77eb773e8f8b.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "f12a5f3b-61ac-4b3c-96d0-bce36f1b6257",
+            "Value": {
+                "id": "1ba64103-e610-4e62-a686-8c6adcd5e1b1",
+                "modelName": "GMResourceInfo",
+                "mvc": "1.0",
+                "configDeltaFiles": [
+                    
+                ],
+                "configDeltas": [
+                    
+                ],
+                "resourceCreationConfigs": [
+                    "default"
+                ],
+                "resourcePath": "objects\/objAttack\/objAttack.yy",
+                "resourceType": "GMObject"
             }
         },
         {
