@@ -1,25 +1,63 @@
 /// @description Execute Character Logic Each Frame
 
-CheckPlayerInputs(self)
+// Defines Player Controls
+CheckPlayerInputs(id)
 
-var moveDir = keyRight - keyLeft;
+// Sets the move direction for the player at this instance
+var moveDir = keyRight - keyLeft
+var onGround = place_meeting(x, y+1, objWall)
 
-MovePlayer(self, moveDir)
+switch(currState) {
+	case PLAYER_STAND: {
+		sprite_index = sprPlayer
+		ySpeed += normGrav
+		MovePlayer(id, moveDir)
+		HandlePlayerJump(id, onGround)
+		if (!onGround) currState = PLAYER_IN_AIR
+		if (keyDown) currState = PLAYER_CROUCH
+		if (xSpeed != 0) currState = PLAYER_RUN
+		break
+	}
+	case PLAYER_CROUCH: {
+		if (xSpeed == 0) sprite_index = sprPlayerCrouch else sprite_index = sprPlayerCrouchWalk
+		ySpeed += normGrav
+		MovePlayer(id, moveDir)
+		HandlePlayerJump(id, onGround)
+		if (!onGround) currState = PLAYER_IN_AIR
+		if (!keyDown) currState = PLAYER_STAND
+		break
+	}
+	case PLAYER_RUN: {
+		sprite_index = sprPlayerWalk
+		ySpeed += normGrav
+		MovePlayer(id, moveDir)
+		HandlePlayerJump(id, onGround)
+		if (!onGround) currState = PLAYER_IN_AIR
+		if (keyDown) currState = PLAYER_CROUCH
+		if (xSpeed == 0) currState = PLAYER_STAND
+		break
+	}
+	case PLAYER_IN_AIR: {
+		sprite_index = sprPlayerAir
+		ySpeed += normGrav
+		MovePlayer(id, moveDir)
+		if (!onGround) && (keyDown)  currState = PLAYER_FAST_FALL
+		if (onGround) && (xSpeed == 0) currState = PLAYER_STAND
+		if (onGround) && (xSpeed != 0) currState = PLAYER_RUN
+		break
+	}
+	case PLAYER_FAST_FALL: {
+		sprite_index = sprFastFall
+		ySpeed += fastGrav
+		MovePlayer(id, moveDir)
+		if (onGround) currState = PLAYER_CROUCH
+		break
+	}
+}
 
-ApplyGravity(self)
+// Handle Collisions
+CollisionCheck(id, objWall)
 
-onGround = place_meeting(x, y+1, objWall)
+x += xSpeed
+y += ySpeed
 
-HandlePlayerJump(self)
-
-// Attack
-fireDelay--;
-
-HandlePlayerAttack(self)
-
-CollisionCheck(self, objWall)
-
-x += xSpeed;
-y += ySpeed;
-
-SetPlayerAnimationState(self, moveDir)

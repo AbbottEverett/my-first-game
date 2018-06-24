@@ -1,6 +1,8 @@
 /// Handles Player Jump Mechanic
-// argument0 is the player instance we are working with
+/// @description HandlePlayerJump(instance, state)
+/// @param instance
+/// @param onGround
 
-if (argument0.onGround) && (argument0.keyJump) {
+if (argument1) && (argument0.keyJump) {
 	argument0.ySpeed = argument0.jumpSpeed;
 }

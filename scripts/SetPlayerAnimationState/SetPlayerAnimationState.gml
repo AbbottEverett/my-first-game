@@ -1,4 +1,7 @@
 /// Manages Player Animation State
+/// @description SetPlayerAnimationState(instance, moveDir)
+/// @param instance
+/// @param moveDir
 // argument0 is player instance
 // argument1 is moveDir for player instance
 
@@ -7,13 +10,7 @@ if (!argument0.onGround) {
 	argument0.image_speed = 0;
 	
 	// Picks frame from speed
-	if (argument0.ySpeed > - argument0.buffer) && (argument0.ySpeed < argument0.buffer) {
-		argument0.image_index = 1;
-	} else if (sign(argument0.ySpeed) == -1) {
-		argument0.image_index = 0;
-	} else {
-		argument0.image_index = 2;
-	}
+	HandleJumpAnimation(argument0)
 	
 } else {
 	argument0.image_speed = 1;

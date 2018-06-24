@@ -1,11 +1,12 @@
 /// Manages player movement
-/// argumet0 is the player instance
-/// argument1 is moveDir on that frame
+/// @description MovePlayer(instance, moveDir)
+/// @param instance
+/// @parm moveDir
+
+// Smooth movement for player using Approach Script
 
 if (argument1 != 0) {
-	argument0.xSpeed += argument1 * argument0.accel;
-	argument0.xSpeed = clamp(argument0.xSpeed, -argument0.walkSpeed, argument0.walkSpeed);
+	argument0.xSpeed = Approach(argument0.xSpeed, (argument0.walkSpeed * argument1), argument0.accel)
 } else {
-	// Linear Interpolation
-	argument0.xSpeed = lerp(argument0.xSpeed, 0, argument0.fric);
+	argument0.xSpeed = Approach(argument0.xSpeed, (argument0.walkSpeed * argument1), argument0.fric)
 }
