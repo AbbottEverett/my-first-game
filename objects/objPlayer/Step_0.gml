@@ -16,6 +16,7 @@ switch(currState) {
 		if (!onGround) currState = PLAYER_IN_AIR
 		if (keyDown) currState = PLAYER_CROUCH
 		if (xSpeed != 0) currState = PLAYER_RUN
+		if (keyShield) currState = PLAYER_SHIELD
 		break
 	}
 	case PLAYER_CROUCH: {
@@ -25,6 +26,17 @@ switch(currState) {
 		HandlePlayerJump(id, onGround)
 		if (!onGround) currState = PLAYER_IN_AIR
 		if (!keyDown) currState = PLAYER_STAND
+		break
+	}
+	case PLAYER_SHIELD: {
+		sprite_index = sprPlayerShield
+		if (shield == undefined) shield = instance_create_layer(x, y, "Attack", objShield)
+		xSpeed = 0
+		if (!keyShield) {
+			currState = PLAYER_STAND
+			instance_destroy(shield.id)
+			shield = undefined
+		}
 		break
 	}
 	case PLAYER_RUN: {
@@ -60,4 +72,6 @@ CollisionCheck(id, objWall)
 
 x += xSpeed
 y += ySpeed
+
+if (xSpeed != 0) image_xscale = sign(xSpeed)
 
