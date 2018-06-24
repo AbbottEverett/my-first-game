@@ -13,7 +13,7 @@ onGround = place_meeting(x, y+1, objWall)
 HandlePlayerJump(self)
 
 // Attack
-fireDelay = fireDelay - 1;
+fireDelay--;
 
 HandlePlayerAttack(self)
 
