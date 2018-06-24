@@ -1,88 +1,25 @@
 /// @description Execute Character Logic Each Frame
 
-// Check Player Inputs
-keyLeft = keyboard_check(ord("A"));
-keyRight = keyboard_check(ord("D"));
-keyJump = keyboard_check_pressed(ord("W"));
-keyAttack = keyboard_check(vk_space);
+CheckPlayerInputs(self)
 
 var moveDir = keyRight - keyLeft;
 
-if (moveDir != 0) {
-	xSpeed += moveDir * accel;
-	xSpeed = clamp(xSpeed, -walkSpeed, walkSpeed);
-} else {
-	// Linear Interpolation
-	xSpeed = lerp(xSpeed, 0, fric);
-}
+MovePlayer(self, moveDir)
 
-// Gravity
-ySpeed += grav;
+ApplyGravity(self)
 
 onGround = place_meeting(x, y+1, objWall)
 
-if (onGround) && (keyJump) {
-	ySpeed = jumpSpeed;
-}
+HandlePlayerJump(self)
 
 // Attack
 fireDelay = fireDelay - 1;
 
-if (keyAttack) && (fireDelay < 1) {
-	with(instance_create_layer(x+(other.image_xscale * 5),y-3,"Attack", objAttack)) {
-		speed = 4 * other.image_xscale;
-		direction = other.image_angle + random_range(-10, 15)
-		other.fireDelay = 5
-	}
-}
+HandlePlayerAttack(self)
 
-// horizontal collision
-if (place_meeting(x+xSpeed, y, objWall)) {
-	while (!place_meeting(x+sign(xSpeed), y, objWall)) {
-		x += sign(xSpeed);
-	}
-	xSpeed = 0;
-}
+CollisionCheck(self, objWall)
 
 x += xSpeed;
-
-// vertical collision
-
-if (place_meeting(x, y+ySpeed, objWall)) {
-	while (!place_meeting(x, y+sign(ySpeed), objWall)) {
-		y += sign(ySpeed);
-	}
-	ySpeed = 0;
-}
-
 y += ySpeed;
 
-// Animation Stuff
-buffer = 0.1
-
-if (!onGround) {
-	sprite_index = sprPlayerAir;
-	image_speed = 0;
-	
-	// Picks frame from speed
-	if (ySpeed > - buffer) && (ySpeed < buffer) {
-		image_index = 1;
-	} else if (sign(ySpeed) == -1) {
-		image_index = 0;
-	} else {
-		image_index = 2;
-	}
-	
-} else {
-	image_speed = 1;
-	
-	if (xSpeed > -buffer) &&  (xSpeed < buffer) {
-		sprite_index = sprPlayer;
-	} else if (moveDir != 0) {
-		sprite_index = sprPlayerWalk;
-	} else {
-		sprite_index = sprPlayerSlide;
-	}
-}
-
-if (xSpeed != 0) image_xscale = sign(xSpeed)
+SetPlayerAnimationState(self, moveDir)
