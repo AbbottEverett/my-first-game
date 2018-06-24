@@ -7,8 +7,10 @@ CheckPlayerInputs(id)
 var moveDir = keyRight - keyLeft
 var onGround = place_meeting(x, y+1, objWall)
 
-if (onGround) canJump = 10 
-canJump--
+if (onGround) {
+	canJump = 10; 
+	jumpCount = 2; 
+} else canJump--
 
 switch(currState) {
 	case PLAYER_STAND: {

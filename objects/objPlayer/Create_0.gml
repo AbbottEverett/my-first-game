@@ -17,12 +17,14 @@ shield = undefined
 keyLeft = 0
 keyRight = 0
 keyJump = 0
+keyJumpHeld = 0
 keyDown = 0
 keyAttack = 0
 keyShield = 0
 
 // Jump vars
 canJump = 0
+jumpCount = 2
 
 // Stateful Vars
 PLAYER_STAND = "PLAYER_STAND"
