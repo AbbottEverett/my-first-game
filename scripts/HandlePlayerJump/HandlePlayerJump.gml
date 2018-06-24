@@ -3,6 +3,6 @@
 /// @param instance
 /// @param onGround
 
-if (argument1) && (argument0.keyJump) {
+if (argument1 > 0) && (argument0.keyJump) {
 	argument0.ySpeed = argument0.jumpSpeed;
 }

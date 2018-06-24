@@ -7,12 +7,15 @@ CheckPlayerInputs(id)
 var moveDir = keyRight - keyLeft
 var onGround = place_meeting(x, y+1, objWall)
 
+if (onGround) canJump = 10 
+canJump--
+
 switch(currState) {
 	case PLAYER_STAND: {
 		sprite_index = sprPlayer
 		ySpeed += normGrav
 		MovePlayer(id, moveDir)
-		HandlePlayerJump(id, onGround)
+		HandlePlayerJump(id, canJump)
 		if (!onGround) currState = PLAYER_IN_AIR
 		if (keyDown) currState = PLAYER_CROUCH
 		if (xSpeed != 0) currState = PLAYER_RUN
@@ -23,7 +26,7 @@ switch(currState) {
 		if (xSpeed == 0) sprite_index = sprPlayerCrouch else sprite_index = sprPlayerCrouchWalk
 		ySpeed += normGrav
 		MovePlayer(id, moveDir)
-		HandlePlayerJump(id, onGround)
+		HandlePlayerJump(id, canJump)
 		if (!onGround) currState = PLAYER_IN_AIR
 		if (!keyDown) currState = PLAYER_STAND
 		break
@@ -43,7 +46,7 @@ switch(currState) {
 		sprite_index = sprPlayerWalk
 		ySpeed += normGrav
 		MovePlayer(id, moveDir)
-		HandlePlayerJump(id, onGround)
+		HandlePlayerJump(id, canJump)
 		if (!onGround) currState = PLAYER_IN_AIR
 		if (keyDown) currState = PLAYER_CROUCH
 		if (xSpeed == 0) currState = PLAYER_STAND
@@ -53,6 +56,7 @@ switch(currState) {
 		sprite_index = sprPlayerAir
 		ySpeed += normGrav
 		MovePlayer(id, moveDir)
+		HandlePlayerJump(id, canJump)
 		if (!onGround) && (keyDown)  currState = PLAYER_FAST_FALL
 		if (onGround) && (xSpeed == 0) currState = PLAYER_STAND
 		if (onGround) && (xSpeed != 0) currState = PLAYER_RUN

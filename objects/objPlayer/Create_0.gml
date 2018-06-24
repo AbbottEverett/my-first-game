@@ -21,6 +21,9 @@ keyDown = 0
 keyAttack = 0
 keyShield = 0
 
+// Jump vars
+canJump = 0
+
 // Stateful Vars
 PLAYER_STAND = "PLAYER_STAND"
 PLAYER_CROUCH = "PLAYER_CROUCH"
